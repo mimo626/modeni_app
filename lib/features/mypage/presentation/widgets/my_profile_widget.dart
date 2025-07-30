@@ -23,7 +23,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
           Row(
             children: [
               CircleAvatar(
-                backgroundColor: AppColors.secondaryColor,
+                backgroundColor: AppColors.primaryColor,
                 radius: 28,
                 child: SvgPicture.asset("lib/core/icons/user.svg"),
               ),
