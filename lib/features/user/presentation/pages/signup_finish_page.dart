@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:modeni_app/core/widget/primary_app_bar.dart';
+import 'package:modeni_app/features/user/data/model/user_model.dart';
 
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/padding.dart';
@@ -11,6 +12,7 @@ import '../../../../core/widget/basic_btn.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../main.dart';
+import '../../data/datasources/user_datasource.dart';
 
 class SignupFinishPage extends StatefulWidget {
   const SignupFinishPage({super.key});
@@ -38,6 +40,15 @@ class _SignupFinishPageState extends State<SignupFinishPage> {
     _timer.cancel();
     super.dispose();
   }
+  Future<void> _signUpUser(UserModel userModel) async{
+    try {
+      UserDatasource userDatasource = UserDatasource();
+      await userDatasource.userSignUp(userModel);
+    } catch (e) {
+      logger.e("회원가입 실패: $e");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,9 +101,9 @@ class _SignupFinishPageState extends State<SignupFinishPage> {
             print(user_controller.role.value);
             print(user_controller.region.value);
             print(user_controller.family_code.value);
-            //TODO 서버에 유저 모델 저장
-            // final user = user_controller.user;
-            // print(user.toJson());
+            //서버에 유저 모델 저장
+            final user = user_controller.user;
+            _signUpUser(user);
             context.push("/login");
           },
         ),
