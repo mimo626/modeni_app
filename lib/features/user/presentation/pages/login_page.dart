@@ -8,6 +8,7 @@ import '../../../../core/theme/padding.dart';
 import '../../../../core/theme/sizedbox.dart';
 import '../../../../core/widget/basic_btn.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -27,21 +28,6 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
     idController.addListener(_onInputChanged);
     passwordController.addListener(_onInputChanged);
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _loginUser();
-    });
-  }
-
-
-  Future<void> _loginUser() async {
-    try {
-      UserDatasource userDatasource = UserDatasource();
-      await userDatasource.login('your_id', 'your_password');
-      // 로그인 성공 후 처리 (예: 페이지 이동, 데이터 로딩 등)
-    } catch (e) {
-      logger.e("로그인 실패: $e");
-      // 실패 처리 (예: 다이얼로그 표시 등)
-    }
   }
 
   void _onInputChanged() {
@@ -63,6 +49,34 @@ class _LoginPageState extends State<LoginPage> {
     idController.dispose();
     passwordController.dispose();
     super.dispose();
+  }
+
+  Future<void> _loginUser(String userId, String password) async {
+    try {
+      UserDatasource userDatasource = UserDatasource();
+      await userDatasource.userLogin(userId, password);
+
+      final user = await userDatasource.getLoginUser(userId);
+
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setInt('id', user.id);
+      await prefs.setString('user_id', user.user_id);
+      await prefs.setString('name', user.name);
+      await prefs.setString('role', user.role);
+      await prefs.setString('region', user.region);
+      await prefs.setString('family_code', user.family_code);
+      await prefs.setString('age', user.age);
+
+      logger.i("로그인 및 SharedPreferences 저장 성공");
+
+      // 페이지 이동
+      if (context.mounted) {
+        context.go("/");
+      }
+    } catch (e) {
+      logger.e("로그인 실패: $e");
+      // 로그인 실패 시 에러 메시지 출력 등 처리 가능
+    }
   }
 
   @override
@@ -98,14 +112,15 @@ class _LoginPageState extends State<LoginPage> {
       bottomNavigationBar: Padding(
         padding: AppPadding.v16Padding,
         child: BasicBtn(
-          btnText: "다음",
+          btnText: "로그인",
           textColor: AppColors.whiteColor,
           backgroundColor: isButtonEnabled
               ? AppColors.primaryColor
               : AppColors.lightGreyColor,
           onPressed: isButtonEnabled
-              ? () => context.push("/")
-              : () => null,
+              ? () {
+            _loginUser(idController.text, passwordController.text);}
+            : (){null;},
         ),
       ),
     );
