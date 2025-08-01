@@ -61,11 +61,11 @@ class _TextFieldTitleState extends State<TextFieldTitle> {
             filled: true, // 배경색 적용을 위함
             fillColor: AppColors.whiteColor,
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(4.0),
+              borderRadius: BorderRadius.circular(18.0),
               borderSide: BorderSide(color: AppColors.greyColor), // 비활성 상태
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(4.0),
+              borderRadius: BorderRadius.circular(18.0),
               borderSide: BorderSide(color: AppColors.lightGreyColor), // 비활성 상태
             ),
           ),
