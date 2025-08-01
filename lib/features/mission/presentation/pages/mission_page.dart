@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:modeni_app/core/theme/colors.dart';
+import 'package:modeni_app/core/theme/text_styles.dart';
 
 class MissionPage extends StatelessWidget {
   const MissionPage({super.key});
@@ -34,10 +36,10 @@ class MissionPage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const CircleAvatar(
+                      CircleAvatar(
                         radius: 30,
                         backgroundColor: Colors.white,
-                        child: Text("🫧"), // 또는 Image.asset('assets/blue.png')
+                        child: Image.asset("lib/core/images/blue_rock.png", scale: 12,), // 또는 Image.asset('assets/blue.png')
                       ),
                       const SizedBox(width: 12),
                       Expanded(
@@ -61,12 +63,12 @@ class MissionPage extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green.shade200,
+                      backgroundColor: AppColors.primaryColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    child: const Text("성향 테스트 다시하기"),
+                    child: Text("성향 테스트 다시하기", style: AppTextStyles.semiBold14.copyWith(color: AppColors.whiteColor),),
                   )
                 ],
               ),
@@ -121,28 +123,28 @@ class MissionPage extends StatelessWidget {
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text("성공한 미션카드", style: TextStyle(fontWeight: FontWeight.bold)),
+                      children:  [
+                        Text("성공한 미션카드", style: AppTextStyles.medium16),
                         SizedBox(height: 4),
-                        Text("01개", style: TextStyle(color: Colors.green, fontSize: 24)),
+                        Text("01개", style: AppTextStyles.semiBold16),
+                        SizedBox(height: 4),
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.primaryColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                            child: Text("미션 카드 확인 하러가기", style: AppTextStyles.semiBold14.copyWith(color: AppColors.whiteColor),),
+                          ),
+                        ),
                       ],
                     ),
                   )
                 ],
-              ),
-            ),
-            const SizedBox(height: 12),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green.shade200,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-                child: const Text("미션 카드 확인 하러가기"),
               ),
             ),
             const SizedBox(height: 20),
@@ -190,7 +192,7 @@ class _FamilyCompatibilityCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Text("🫧", style: TextStyle(fontSize: 24)), // 이모티콘 또는 이미지로 대체
+          Image.asset("lib/core/images/navy_rock.png", scale: 12,), // 또는 Image.asset('assets/blue.png')
           Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
           const SizedBox(height: 4),
           Container(
@@ -202,7 +204,7 @@ class _FamilyCompatibilityCard extends StatelessWidget {
             child: Text(type),
           ),
           const SizedBox(height: 4),
-          const Text("??? %", style: TextStyle(color: Colors.grey)),
+          const Text("80%", style: TextStyle(color: Colors.grey)),
         ],
       ),
     );
