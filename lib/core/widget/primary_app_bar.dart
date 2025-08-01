@@ -102,6 +102,7 @@ class _PrimaryAppbarState extends State<PrimaryAppbar> {
                       'lib/core/icons/setting.svg',
                       width: 24,
                       height: 24,
+                      color: AppColors.greyColor,
                     ),
                     onPressed: () {
                       context.push("/settings");
@@ -119,6 +120,7 @@ class _PrimaryAppbarState extends State<PrimaryAppbar> {
                     'lib/core/icons/bell.svg',
                     width: 24,
                     height: 24,
+                    color: AppColors.greyColor,
                   ),
                   onPressed: () {
                     context.push("/alarm");
