@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:modeni_app/core/theme/text_styles.dart';
 import 'package:modeni_app/core/widget/primary_app_bar.dart';
 import 'package:modeni_app/core/widget/text_field_title.dart';
 

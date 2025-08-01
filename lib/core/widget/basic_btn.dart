@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:modeni_app/core/theme/colors.dart';
 
 import '../theme/padding.dart';
 import '../theme/text_styles.dart';

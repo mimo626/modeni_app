@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:modeni_app/core/theme/padding.dart';
 
 import '../theme/colors.dart';
 import '../theme/sizedbox.dart';
