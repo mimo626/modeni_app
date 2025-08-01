@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:modeni_app/core/widget/primary_app_bar.dart';
 import 'package:modeni_app/core/widget/text_field_title.dart';
+import 'package:modeni_app/features/user/data/datasources/user_datasource.dart';
 
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/padding.dart';
 import '../../../../core/theme/sizedbox.dart';
 import '../../../../core/widget/basic_btn.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../data/model/user_model.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -25,6 +28,21 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
     idController.addListener(_onInputChanged);
     passwordController.addListener(_onInputChanged);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _loginUser();
+    });
+  }
+
+
+  Future<void> _loginUser() async {
+    try {
+      UserDatasource userDatasource = UserDatasource();
+      await userDatasource.login('your_id', 'your_password');
+      // 로그인 성공 후 처리 (예: 페이지 이동, 데이터 로딩 등)
+    } catch (e) {
+      logger.e("로그인 실패: $e");
+      // 실패 처리 (예: 다이얼로그 표시 등)
+    }
   }
 
   void _onInputChanged() {
