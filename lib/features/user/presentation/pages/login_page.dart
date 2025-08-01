@@ -54,9 +54,7 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> _loginUser(String userId, String password) async {
     try {
       UserDatasource userDatasource = UserDatasource();
-      await userDatasource.userLogin(userId, password);
-
-      final user = await userDatasource.getLoginUser(userId);
+      final user = await userDatasource.userLogin(userId, password);
 
       final prefs = await SharedPreferences.getInstance();
       await prefs.setInt('id', user.id);
