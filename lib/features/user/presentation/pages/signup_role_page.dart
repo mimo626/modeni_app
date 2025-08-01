@@ -64,7 +64,7 @@ class _SignupRolePageState extends State<SignupRolePage> {
           Padding(
             padding: AppPadding.h20Padding,
             child: LinearProgressIndicator(
-              value: 0.4,
+              value: 0.7,
               backgroundColor: AppColors.lightGreyColor,
               color: AppColors.primaryColor,
             ),
@@ -134,7 +134,7 @@ class _SignupRolePageState extends State<SignupRolePage> {
           onPressed: () {
             if (isButtonEnabled) {
               setState(() {
-                context.push("/signup_role");
+                context.push("/signup_region");
               });
             }
             else {

@@ -50,7 +50,7 @@ class _SignupNamePageState extends State<SignupNamePage> {
           Padding(
             padding: AppPadding.h20Padding,
             child: LinearProgressIndicator(
-              value: 0.2,
+              value: 0.3,
               backgroundColor: AppColors.lightGreyColor,
               color: AppColors.primaryColor,
             ),
@@ -85,7 +85,7 @@ class _SignupNamePageState extends State<SignupNamePage> {
           onPressed: () {
             if (isButtonEnabled) {
               setState(() {
-                context.push("/signup_role");
+                context.push("/signup_age");
               });
             }
             else {
