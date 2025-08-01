@@ -10,6 +10,8 @@ import '../../../../core/widget/basic_btn.dart';
 import '../../../../core/widget/primary_app_bar.dart';
 import 'package:go_router/go_router.dart';
 
+import 'diary_page.dart';
+
 class DiaryWritePage extends StatefulWidget {
   const DiaryWritePage({super.key});
 
@@ -145,7 +147,12 @@ class _DiaryWritePageState extends State<DiaryWritePage> {
           onPressed: () {
             if (isButtonEnabled) {
               setState(() {
-                // 유저 정보 저장
+                final familyAnswer = FamilyAnswerModel(
+                  name: "나",
+                  emotions: ["행복", "감사"],
+                  activities: ["산책하기", "영화보기"],
+                  content: "산책하고 기대한 영화를 봤다!",);
+                Globals.familyAnswers.insert(0, familyAnswer);
                 context.pop();
               });
             }

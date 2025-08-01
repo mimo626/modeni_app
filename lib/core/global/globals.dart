@@ -2,7 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:modeni_app/features/questions_list/data/model/question_model.dart';
 
+import '../../features/diary/presentation/pages/diary_page.dart';
 import '../theme/colors.dart';
 import 'nav_item.dart';
 
@@ -101,25 +103,39 @@ class Globals {
     '제주특별자치도',
   ];
 
-  static BigInt generateRandom8DigitBigInt() {
+  static String generateRandom8DigitBigInt() {
     final rand = Random();
     final randomNumber = 10000000 + rand.nextInt(90000000); // 10000000 ~ 99999999
-    return BigInt.from(randomNumber);
+    return "${BigInt.from(randomNumber)}";
   }
 
-  static List<String> familyQuestions = [
-    "우리 가족의 숨겨진 재능은 무엇이라고 생각하나요?",
-    "스트레스를 풀 때 주로 무엇을 하나요?",
-    "당신에게 있어서 가족이란 어떤 존재라고 생각하나요?",
-    "가족들과 보낸 시간 중에 가장 행복했던 기억은 무엇인가요?",
-    "가족들이 각각 닮은 동물과 그 이유는 무엇인가요?",
-    "힘들거나 지칠 때 어떤 말이나 행동이 가장 큰 힘이 되나요?",
-    "어린 시절 가장 기억에 남는 가족과의 추억은 무엇인가요?",
-    "우리 가족이 함께 가보고 싶은 여행지가 있다면 어디인가요? 이유도 함께 말해주세요.",
-    "가족끼리 하루 동안 아무 제약 없이 놀 수 있다면 무엇을 하고 싶나요?",
-    "우리 가족 중, 오늘 가장 고마웠던 사람은 누구인가요?",
-    "요즘 마음이 힘들 땐, 어떤 말이나 행동이 가장 위로가 되나요?",
+  static List<QuestionModel> familyQuestions = [
+    QuestionModel(
+      id: 1,
+      content: "오늘은 가족과 함께 산책을 했어요. 행복했어요.",
+      familyId: 1,
+      createdAt: DateTime.now().subtract(Duration(days: 1)),
+    ),
+    QuestionModel(
+      id: 2,
+      content: "비가 와서 우울했지만, 엄마가 만든 김치찌개가 맛있었어요.",
+      familyId: 1,
+      createdAt: DateTime.now().subtract(Duration(days: 2)),
+    ),
+    QuestionModel(
+      id: 3,
+      content: "동생이랑 싸웠지만 금방 화해했어요.",
+      familyId: 1,
+      createdAt: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    QuestionModel(
+      id: 4,
+      content: "오늘은 새로운 책을 읽었어요. 생각이 많아졌어요.",
+      familyId: 1,
+      createdAt: DateTime.now().subtract(Duration(days: 4)),
+    ),
   ];
+
 
   static List<String> emotions = [
     '행복', '평온', '감사', '뿌듯함', '여유',
@@ -128,6 +144,27 @@ class Globals {
 
   static List<String> activities = [
     '휴식하기', '산책하기', '맛있는 거 먹기', '음악 듣기', '영화 보기', '책 읽기', '운동하기', '게임하기',
+  ];
+
+  static List<FamilyAnswerModel> familyAnswers = [
+    FamilyAnswerModel(
+      name: "아빠",
+      emotions: ["뿌듯함", "행복"],
+      activities: ["산책하기", "요리하기"],
+      content: "산책하고 요리해서 좋았다.",
+    ),
+    FamilyAnswerModel(
+      name: "엄마",
+      emotions: ["감사함", "기쁨"],
+      activities: ["책 읽기", "요가하기"],
+      content: "고요하게 책을 읽은 하루",
+    ),
+    FamilyAnswerModel(
+      name: "형",
+      emotions: ["짜증", "피곤"],
+      activities: ["게임하기", "운동하기"],
+      content: "게임을 많이 져서 짜증나고 피곤하다",
+    ),
   ];
 
 }
