@@ -20,7 +20,7 @@ class _RoleBtnState extends State<RoleBtn> {
         Image.asset(
             widget.isSelected ? "lib/core/images/son_profile.png"
                 : "lib/core/images/grey_profile.png",
-          scale: 6,
+          scale: 4,
         ),
         AppSizedBox.h16SizedBox,
         Text(widget.role, style: AppTextStyles.semiBold14.copyWith(

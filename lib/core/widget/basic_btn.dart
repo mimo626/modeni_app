@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modeni_app/core/theme/colors.dart';
 
 import '../theme/padding.dart';
 import '../theme/text_styles.dart';
@@ -10,6 +11,7 @@ class BasicBtn extends StatefulWidget {
   final Color backgroundColor;
   final VoidCallback onPressed;
   final EdgeInsets padding;
+  final Color? borderColor;
 
   const BasicBtn({
     super.key,
@@ -18,6 +20,7 @@ class BasicBtn extends StatefulWidget {
     required this.backgroundColor,
     required this.onPressed,
     this.padding = AppPadding.h20Padding,
+    this.borderColor,
   });
 
   @override
@@ -38,11 +41,13 @@ class _BasicBtnState extends State<BasicBtn> {
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(18.0),
+            side: widget.borderColor != null ? BorderSide(color: widget.borderColor!, width: 2)
+                : BorderSide.none
           ),
         ),
         child: Text(
           widget.btnText,
-          style: AppTextStyles.medium16.copyWith(color: widget.textColor),
+          style: AppTextStyles.semiBold16.copyWith(color: widget.textColor),
         ),
       ),
     );

@@ -56,7 +56,7 @@ class _SignupAgePageState extends State<SignupAgePage> {
             ),
           ),
           Spacer(),
-          Text("나이을 입력해 주세요.",
+          Text("나이을 입력해 주세요",
               style: AppTextStyles.semiBold18.copyWith(color: AppColors.primaryColor)),
           AppSizedBox.h54SizedBox,
           Image.asset(

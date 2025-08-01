@@ -81,7 +81,7 @@ class _SignupIdpasswordPageState extends State<SignupIdpasswordPage> {
             padding: AppPadding.h60v16Padding,
             child: TextFieldTitle(
               controller: idController,
-              hintText: "아이디를 입력해 주세요.",
+              hintText: "아이디 입력",
             ),
           ),
 
@@ -91,7 +91,7 @@ class _SignupIdpasswordPageState extends State<SignupIdpasswordPage> {
             padding: AppPadding.h60v16Padding,
             child: TextFieldTitle(
               controller: passwordController,
-              hintText: "비밀번호를 입력해 주세요.",
+              hintText: "비밀번호 입력",
             ),
           ),
 
@@ -100,7 +100,7 @@ class _SignupIdpasswordPageState extends State<SignupIdpasswordPage> {
             padding: AppPadding.h60v16Padding,
             child: TextFieldTitle(
               controller: rePasswordController,
-              hintText: "비밀번호를 동일하게 입력해 주세요.",
+              hintText: "비밀번호 확인",
             ),
           ),
 

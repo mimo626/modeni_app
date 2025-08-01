@@ -74,7 +74,7 @@ class _SignupConnectionPageState extends State<SignupConnectionPage> {
               Expanded(
                 child: BasicBtn(
                   padding: EdgeInsets.zero,
-                  btnText: "가족 코드 발급받기",
+                  btnText: "코드 발급받기",
                   textColor: AppColors.whiteColor,
                   backgroundColor: AppColors.primaryColor,
                   onPressed: () {
@@ -88,9 +88,10 @@ class _SignupConnectionPageState extends State<SignupConnectionPage> {
               Expanded(
                 child: BasicBtn(
                   padding: EdgeInsets.zero,
-                  btnText: "받은 코드로 연결하기",
-                  textColor: AppColors.whiteColor,
-                  backgroundColor: AppColors.darkGreyColor,
+                  btnText: "코드로 연결하기",
+                  textColor: AppColors.primaryColor,
+                  backgroundColor: AppColors.whiteColor,
+                  borderColor: AppColors.primaryColor,
                   onPressed: () {
                     context.push("/signup_code");
                   },

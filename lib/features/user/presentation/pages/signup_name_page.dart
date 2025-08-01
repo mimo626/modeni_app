@@ -56,7 +56,7 @@ class _SignupNamePageState extends State<SignupNamePage> {
             ),
           ),
           Spacer(),
-          Text("이름을 입력해 주세요.",
+          Text("이름을 입력해 주세요",
               style: AppTextStyles.semiBold18.copyWith(color: AppColors.primaryColor)),
           AppSizedBox.h54SizedBox,
           Image.asset(
@@ -68,7 +68,7 @@ class _SignupNamePageState extends State<SignupNamePage> {
             padding: AppPadding.h60v16Padding,
             child: TextFieldTitle(
               controller: nameController,
-              hintText: "이름을 입력해 주세요.",
+              hintText: "이름 입력",
             ),
           ),
           Spacer(),

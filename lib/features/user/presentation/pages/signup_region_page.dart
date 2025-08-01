@@ -38,7 +38,7 @@ class _SignupRegionPageState extends State<SignupRegionPage> {
             ),
           ),
           Spacer(),
-          Text("거주지역을 선택해 주세요.",
+          Text("거주지역을 선택해 주세요",
               style: AppTextStyles.semiBold18.copyWith(color: AppColors.primaryColor)),
           AppSizedBox.h54SizedBox,
           Padding(

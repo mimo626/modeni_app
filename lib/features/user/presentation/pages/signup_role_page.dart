@@ -74,8 +74,8 @@ class _SignupRolePageState extends State<SignupRolePage> {
               style: AppTextStyles.semiBold18.copyWith(color: AppColors.primaryColor)),
           AppSizedBox.h54SizedBox,
           SizedBox(
-            width: 200,
-            height: 350,
+            width: 280,
+            height: 400,
             child: GridView.builder(
               itemCount: 4,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -106,7 +106,7 @@ class _SignupRolePageState extends State<SignupRolePage> {
               },
             ),
           ),
-          AppSizedBox.h32SizedBox,
+          AppSizedBox.h24SizedBox,
           InkWell(
             onTap: () {
               setState(() {
