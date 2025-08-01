@@ -162,7 +162,7 @@ class FamilyCard extends StatelessWidget {
                 foregroundColor: AppColors.primaryColor,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               ),
-              child: Text("❤️ ${member.heartCount}", style: AppTextStyles.medium16.copyWith(color: AppColors.whiteColor),),
+              child: Text("👍️ ${member.heartCount}", style: AppTextStyles.medium16.copyWith(color: AppColors.whiteColor),),
             ),
           ),
         ],
