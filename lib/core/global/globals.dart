@@ -51,12 +51,12 @@ class Globals {
     ),
     NavItem(
       icon: Icon(
-        Icons.bookmark_outline,
+        Icons.add_box_outlined,
         color: AppColors.greyColor,
         size: Globals.navItemSize,
       ),
       activeIcon: Icon(
-        Icons.bookmark_outline,
+        Icons.add_box_outlined,
         color: AppColors.darkGreyColor,
         size: Globals.navItemSize,
       ),
