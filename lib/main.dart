@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:modeni_app/features/user/presentation/pages/login_page.dart';
 import 'package:modeni_app/features/user/presentation/pages/signup_age_page.dart';
 import 'package:modeni_app/features/user/presentation/pages/signup_code_page.dart';
 import 'package:modeni_app/features/user/presentation/pages/signup_connection_page.dart';
@@ -30,6 +31,12 @@ final GoRouter _router = GoRouter(
       path: '/start',
       builder: (context, state) {
         return StartPage();
+      },
+    ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) {
+        return LoginPage();
       },
     ),
     GoRoute(
