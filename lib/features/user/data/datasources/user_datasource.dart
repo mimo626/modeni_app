@@ -57,7 +57,7 @@ class UserDatasource {
   }
 
   /// 로그인
-  Future<void> userLogin(String userId, String password) async {
+  Future<UserModel> userLogin(String userId, String password) async {
     try {
       final response = await dio.post('/auth/login', data:
       {
@@ -69,8 +69,10 @@ class UserDatasource {
       if (response.statusCode == 200) {
         dynamic data = response.data;
 
+        final user = await UserModel.fromJson(data);
+
         logger.i("유저 로그인 성공");
-        return;
+        return user;
       } else {
         throw Exception('회원가입 실패');
       }
