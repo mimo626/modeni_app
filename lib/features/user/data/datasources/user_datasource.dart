@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
+import 'package:modeni_app/features/user/data/model/user_model.dart';
 
 
 
@@ -26,34 +27,79 @@ class UserDatasource {
     ),
   );
 
-  /// 유저 조회
-  Future<void> login(String user_id, String password) async {
+  /// 회원가입
+  Future<void> userSignUp(UserModel userModel) async {
     try {
       final response = await dio.post('/auth/signup', data:
       {
-        "userId": "papa001",
-        "password": "password123",
-        "username": "홍길동",
-        "age": "35",
-        "role": "아빠",
-        "region": "서울"
+        "userId": userModel.user_id,
+        "password": userModel.password,
+        "username": userModel.name,
+        "age": userModel.age,
+        "role": userModel.role,
+        "region": userModel.region,
+        "familyCode": userModel.family_code
       }
       );
 
-      //TODO nextPage를 받아서 무한 스크롤 가능하게 수정 필요
       if (response.statusCode == 200) {
         dynamic data = response.data;
 
-        //List<Map<String, dynamic>> results = List<Map<String, dynamic>>.from(data["results"]);
+        logger.i("유저 회원가입 성공");
+        return;
+      } else {
+        throw Exception('회원가입 실패');
+      }
+    } catch (e) {
+      logger.e("회원가입 실패: $e");
+      throw Exception("회원가입 중 오류 발생: $e");
+    }
+  }
+
+  /// 로그인
+  Future<void> userLogin(String userId, String password) async {
+    try {
+      final response = await dio.post('/auth/login', data:
+      {
+        "userId": userId,
+        "password": password,
+      }
+      );
+
+      if (response.statusCode == 200) {
+        dynamic data = response.data;
 
         logger.i("유저 로그인 성공");
         return;
       } else {
-        throw Exception('뉴스 데이터를 가져오지 못했습니다.');
+        throw Exception('회원가입 실패');
       }
     } catch (e) {
-      logger.e("뉴스 조회 실패: $e");
-      throw Exception("뉴스 조회 중 오류 발생: $e");
+      logger.e("회원가입 실패: $e");
+      throw Exception("회원가입 중 오류 발생: $e");
+    }
+  }
+
+  // 로그인된 회원 조회
+  Future<UserModel> getLoginUser(String userId) async {
+    try {
+      final response = await dio.get('', queryParameters:
+      {
+        "userId": userId,
+      }
+      );
+
+      if (response.statusCode == 200) {
+        dynamic data = response.data;
+
+        logger.i("로그인 유저 조회 성공");
+        return UserModel.fromJson(data);
+      } else {
+        throw Exception('로그인 유저 조회 실패');
+      }
+    } catch (e) {
+      logger.e("로그인 유저 조회 실패: $e");
+      throw Exception("로그인 유저 조회 중 오류 발생: $e");
     }
   }
 }
