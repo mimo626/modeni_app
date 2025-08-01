@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:modeni_app/features/user/presentation/pages/signup_age_page.dart';
+import 'package:modeni_app/features/user/presentation/pages/signup_code_page.dart';
+import 'package:modeni_app/features/user/presentation/pages/signup_connection_page.dart';
+import 'package:modeni_app/features/user/presentation/pages/signup_finish_page.dart';
+import 'package:modeni_app/features/user/presentation/pages/signup_idpassword_page.dart';
 import 'package:modeni_app/features/user/presentation/pages/signup_name_page.dart';
 import 'package:modeni_app/features/user/presentation/pages/signup_region_page.dart';
 import 'package:modeni_app/features/user/presentation/pages/signup_role_page.dart';
 
-import 'features/user/presentation/pages/login_page.dart';
+import 'features/user/presentation/pages/start_page.dart';
 import 'main_page.dart';
 
 void main() {
@@ -13,7 +18,7 @@ void main() {
 }
 
 final GoRouter _router = GoRouter(
-  initialLocation: "/login",
+  initialLocation: "/start",
   routes: <RouteBase>[
     GoRoute(
       path: '/',
@@ -22,15 +27,27 @@ final GoRouter _router = GoRouter(
       },
     ),
     GoRoute(
-      path: '/login',
+      path: '/start',
       builder: (context, state) {
-        return LoginPage();
+        return StartPage();
+      },
+    ),
+    GoRoute(
+      path: '/signup_idpassword',
+      builder: (context, state) {
+        return SignupIdpasswordPage();
       },
     ),
     GoRoute(
       path: '/signup_name',
       builder: (context, state) {
         return SignupNamePage();
+      },
+    ),
+    GoRoute(
+      path: '/signup_age',
+      builder: (context, state) {
+        return SignupAgePage();
       },
     ),
     GoRoute(
@@ -43,6 +60,24 @@ final GoRouter _router = GoRouter(
       path: '/signup_region',
       builder: (context, state) {
         return SignupRegionPage();
+      },
+    ),
+    GoRoute(
+      path: '/signup_connection',
+      builder: (context, state) {
+        return SignupConnectionPage();
+      },
+    ),
+    GoRoute(
+      path: '/signup_code',
+      builder: (context, state) {
+        return SignupCodePage();
+      },
+    ),
+    GoRoute(
+      path: '/signup_finish',
+      builder: (context, state) {
+        return SignupFinishPage();
       },
     ),
   ]
