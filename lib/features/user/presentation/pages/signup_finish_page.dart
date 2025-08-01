@@ -10,6 +10,8 @@ import '../../../../core/theme/text_styles.dart';
 import '../../../../core/widget/basic_btn.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../main.dart';
+
 class SignupFinishPage extends StatefulWidget {
   const SignupFinishPage({super.key});
 
@@ -82,7 +84,16 @@ class _SignupFinishPageState extends State<SignupFinishPage> {
           textColor: AppColors.whiteColor,
           backgroundColor: AppColors.primaryColor,
           onPressed: () {
-            context.push("/signup_finish");
+            print(user_controller.user_id.value);
+            print(user_controller.password.value);
+            print(user_controller.name.value);
+            print(user_controller.role.value);
+            print(user_controller.region.value);
+            print(user_controller.family_code.value);
+            //TODO 서버에 유저 모델 저장
+            // final user = user_controller.user;
+            // print(user.toJson());
+            context.push("/login");
           },
         ),
       ),
