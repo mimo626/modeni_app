@@ -1,27 +1,23 @@
 class QuestionModel {
   final int id;
   final String content;
-  final int familyId;
-  final DateTime createdAt;
+  final String familyCode;
 
   QuestionModel({
     required this.id,
     required this.content,
-    required this.familyId,
-    required this.createdAt,
+    required this.familyCode,
   });
 
   factory QuestionModel.fromJson(Map<String, dynamic> json) => QuestionModel(
-    id: json['id'],
-    content: json['content'],
-    familyId: json['family_id'],
-    createdAt: DateTime.parse(json['created_at']),
+    id: json['id'] as int? ?? 0,
+    content: json['content'] as String? ?? '',
+    familyCode: json['familyCode'] as String? ?? '',
   );
 
   Map<String, dynamic> toJson() => {
     'id': id,
     'content': content,
-    'family_id': familyId,
-    'created_at': createdAt.toIso8601String(),
+    'familyCode': familyCode,
   };
 }
