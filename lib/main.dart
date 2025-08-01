@@ -27,7 +27,7 @@ void main() {
 final user_controller = Get.put(UserController());
 
 final GoRouter _router = GoRouter(
-  initialLocation: "/",
+  initialLocation: "/start",
   routes: <RouteBase>[
     GoRoute(
       path: '/',
@@ -99,13 +99,14 @@ final GoRouter _router = GoRouter(
       path: '/question_detail',
       builder: (context, state) {
         final extra = state.extra as Map<String, dynamic>;
-        return QuestionDetailPage(index: extra["index"], question: extra["question"],);
+        return QuestionDetailPage(index: extra["index"], questionModel: extra["questionModel"],);
       },
     ),
     GoRoute(
       path: '/answer_write',
       builder: (context, state) {
-        return AnswerWritePage();
+        final extra = state.extra as Map<String, dynamic>;
+        return AnswerWritePage(questionModel: extra["questionModel"],);
       },
     ),
     GoRoute(
