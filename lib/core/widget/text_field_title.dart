@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:modeni_app/core/theme/padding.dart';
 
 import '../theme/colors.dart';
 import '../theme/sizedbox.dart';
@@ -15,6 +16,7 @@ class TextFieldTitle extends StatefulWidget {
   final FocusNode? focusNode; // 포커스 노드
   final TextInputType? keyboardType; // 키보드 타입
   final List<TextInputFormatter>? inputFormatters; // 입력 형식 제한
+  final int? minLines;
   const TextFieldTitle({
     super.key,
     this.title,
@@ -26,6 +28,7 @@ class TextFieldTitle extends StatefulWidget {
     this.focusNode,
     this.keyboardType,
     this.inputFormatters,
+    this.minLines,
   });
 
   @override
@@ -48,6 +51,8 @@ class _TextFieldTitleState extends State<TextFieldTitle> {
         ],
 
         TextField(
+          minLines: widget.minLines,
+          maxLines: null,
           controller: widget.controller,
           obscureText: widget.isObscureText,
           focusNode: widget.focusNode,
