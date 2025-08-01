@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modeni_app/core/theme/colors.dart';
 import 'package:modeni_app/core/theme/padding.dart';
-import 'package:modeni_app/core/theme/sizedbox.dart';
 import 'package:modeni_app/core/widget/basic_btn.dart';
 import 'package:go_router/go_router.dart';
 
