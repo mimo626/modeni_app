@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -98,4 +100,10 @@ class Globals {
     '경상남도',
     '제주특별자치도',
   ];
+
+  static BigInt generateRandom8DigitBigInt() {
+    final rand = Random();
+    final randomNumber = 10000000 + rand.nextInt(90000000); // 10000000 ~ 99999999
+    return BigInt.from(randomNumber);
+  }
 }
