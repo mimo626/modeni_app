@@ -9,6 +9,8 @@ import '../../../../core/theme/sizedbox.dart';
 import '../../../../core/widget/basic_btn.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../main.dart';
+
 class SignupAgePage extends StatefulWidget {
   const SignupAgePage({super.key});
 
@@ -86,6 +88,8 @@ class _SignupAgePageState extends State<SignupAgePage> {
           onPressed: () {
             if (isButtonEnabled) {
               setState(() {
+                // 유저 정보 저장
+                user_controller.age.value = int.parse(ageController.text);
                 context.push("/signup_role");
               });
             }
