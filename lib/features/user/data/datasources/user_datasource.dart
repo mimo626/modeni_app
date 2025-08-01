@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
-import 'package:modeni_app/features/user/data/model/user_model.dart';
 
 
 

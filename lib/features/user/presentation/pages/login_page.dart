@@ -9,7 +9,6 @@ import '../../../../core/theme/sizedbox.dart';
 import '../../../../core/widget/basic_btn.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../data/model/user_model.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

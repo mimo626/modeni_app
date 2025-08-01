@@ -4,7 +4,6 @@ import 'package:modeni_app/core/widget/basic_btn.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/padding.dart';
 import '../../../../core/theme/sizedbox.dart';
-import '../../../../core/theme/text_styles.dart';
 import '../../../../core/widget/primary_app_bar.dart';
 import 'package:go_router/go_router.dart';
 
