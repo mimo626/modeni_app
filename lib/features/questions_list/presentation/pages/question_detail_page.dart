@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modeni_app/core/global/globals.dart';
 import 'package:modeni_app/core/widget/basic_btn.dart';
 
 import '../../../../core/theme/colors.dart';
@@ -44,7 +45,7 @@ class _QuestionDetailPageState extends State<QuestionDetailPage> {
                   padding: AppPadding.h20v26Padding,
                   child: SizedBox(
                     width: double.infinity,
-                    child: BasicBtn(btnText: "작성하기", textColor: AppColors.whiteColor,
+                    child: Globals.members.length == 4 ? SizedBox() : BasicBtn(btnText: "작성하기", textColor: AppColors.whiteColor,
                         backgroundColor: AppColors.tertiaryColor,
                         onPressed: () async {
                           answerModel = await context.push<AnswerModel>(

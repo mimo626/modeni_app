@@ -23,7 +23,7 @@ class _QuestionListPageState extends State<QuestionListPage> {
   Future<void> _getFamilyQuestions(String familyCode) async {
     try {
       QuestionDatasource questionDatasource = QuestionDatasource();
-      questionModels = await questionDatasource.getFamilyQuestions(familyCode);
+      questionModels = await questionDatasource.getFamilyQuestions();
     } catch (e) {
       logger.e("가족 질문들 가져오기 실패: $e");
     }

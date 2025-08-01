@@ -50,14 +50,14 @@ class QuestionDatasource {
   }
 
   /// 가족 질문리스트
-  Future<List<QuestionModel>> getFamilyQuestions(String familyCode) async {
+  Future<List<QuestionModel>> getFamilyQuestions() async {
     try {
-      final response = await dio.get('/user-daily-questions/history/family/' + familyCode);
+      final response = await dio.get('/user-daily-questions/initial-questions');
 
       if (response.statusCode == 200) {
         final List<dynamic> data = response.data;
 
-        final list = await data.map((item) => QuestionModel.fromJson(item["question"])).toList();
+        final list = await data.map((item) => QuestionModel.fromJson(item)).toList();
 
         logger.i("질문들 가져오기 성공");
         return list;
