@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modeni_app/core/widget/basic_btn.dart';
 
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/padding.dart';
@@ -37,13 +38,9 @@ class _QuestionDetailPageState extends State<QuestionDetailPage> {
               padding: AppPadding.h20v26Padding,
               child: SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
+                child: BasicBtn(btnText: "작성하기", textColor: AppColors.whiteColor,
                     backgroundColor: AppColors.tertiaryColor,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                  ),
-                  onPressed: () => context.push("/answer_write"),
-                  child: Text("작성하러 가기", style: AppTextStyles.medium14.copyWith(color: AppColors.whiteColor)),
+                    onPressed: () => context.push("/answer_write"),
                 ),
               ),
             ),
