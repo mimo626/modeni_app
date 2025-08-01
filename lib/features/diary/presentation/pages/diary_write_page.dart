@@ -148,9 +148,9 @@ class _DiaryWritePageState extends State<DiaryWritePage> {
             if (isButtonEnabled) {
               setState(() {
                 final familyAnswer = FamilyAnswerModel(
-                  name: "나",
+                  name: "딸",
                   emotions: ["행복", "감사"],
-                  activities: ["산책하기", "영화보기"],
+                  activities: ["산책하기", "영화 보기"],
                   content: "산책하고 기대한 영화를 봤다!",);
                 Globals.familyAnswers.insert(0, familyAnswer);
                 context.pop();
