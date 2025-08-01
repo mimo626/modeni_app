@@ -5,14 +5,14 @@ import 'package:modeni_app/core/theme/sizedbox.dart';
 import 'package:modeni_app/core/widget/basic_btn.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class StartPage extends StatefulWidget {
+  const StartPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<StartPage> createState() => _StartPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,11 +31,11 @@ class _LoginPageState extends State<LoginPage> {
       ),
       bottomNavigationBar: Padding(
         padding: AppPadding.v16Padding,
-        child: BasicBtn(btnText: "시작하기",
+        child: BasicBtn(btnText: "회원가입 하기",
             textColor: AppColors.primaryColor,
             backgroundColor: AppColors.whiteColor,
             onPressed: (){
-              context.push("/signup_name");
+              context.push("/signup_idpassword");
             }
         ),
       ),
