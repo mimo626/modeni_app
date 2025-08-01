@@ -16,7 +16,27 @@ class SignupNamePage extends StatefulWidget {
 }
 
 class _SignupNamePageState extends State<SignupNamePage> {
-  TextEditingController nameController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  bool isButtonEnabled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    nameController.addListener(_onNameChanged);
+  }
+
+  void _onNameChanged() {
+    setState(() {
+      isButtonEnabled = nameController.text.trim().isNotEmpty;
+    });
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,22 +47,24 @@ class _SignupNamePageState extends State<SignupNamePage> {
         children: [
           AppSizedBox.h54SizedBox,
           LinearProgressIndicator(
-            value: 0.3,
+            value: 0.2,
             backgroundColor: AppColors.lightGreyColor,
             color: AppColors.primaryColor,
           ),
           Spacer(),
-          Text("이름을 입력해 주세요.", style: AppTextStyles.semiBold18.copyWith(color: AppColors.primaryColor),),
+          Text("이름을 입력해 주세요.",
+              style: AppTextStyles.semiBold18.copyWith(color: AppColors.primaryColor)),
           AppSizedBox.h54SizedBox,
           Image.asset(
-            "lib/core/images/modeni_logo.png",
-            scale: 1.2,),
+            "lib/core/images/maingreen_smile.png",
+            scale: 10,
+          ),
           AppSizedBox.h54SizedBox,
           Padding(
             padding: AppPadding.h20Padding,
             child: TextFieldTitle(
-                controller: nameController,
-                hintText: "이름을 입력해 주세요.",
+              controller: nameController,
+              hintText: "이름을 입력해 주세요.",
             ),
           ),
           Spacer(),
@@ -50,14 +72,25 @@ class _SignupNamePageState extends State<SignupNamePage> {
       ),
       bottomNavigationBar: Padding(
         padding: AppPadding.v16Padding,
-        child: BasicBtn(btnText: "다음",
-            textColor: AppColors.whiteColor,
-            backgroundColor: AppColors.primaryColor,
-            onPressed: (){
-              context.push("/signup_role");
+        child: BasicBtn(
+          btnText: "다음",
+          textColor: AppColors.whiteColor,
+          backgroundColor: isButtonEnabled
+              ? AppColors.primaryColor
+              : AppColors.lightGreyColor,
+          onPressed: () {
+            if (isButtonEnabled) {
+              setState(() {
+                context.push("/signup_role");
+              });
             }
+            else {
+              null;
+            }
+          },
         ),
       ),
     );
   }
 }
+
