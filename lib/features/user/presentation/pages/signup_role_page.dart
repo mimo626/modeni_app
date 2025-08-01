@@ -75,11 +75,11 @@ class _SignupRolePageState extends State<SignupRolePage> {
           AppSizedBox.h54SizedBox,
           SizedBox(
             width: 200,
-            height: 300,
+            height: 350,
             child: GridView.builder(
               itemCount: 4,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // ✅ 가로에 3개
+                crossAxisCount: 2,
                 crossAxisSpacing: 12,
                 mainAxisSpacing: 12,
                 childAspectRatio: 1, // 정사각형
@@ -106,7 +106,7 @@ class _SignupRolePageState extends State<SignupRolePage> {
               },
             ),
           ),
-          AppSizedBox.h54SizedBox,
+          AppSizedBox.h32SizedBox,
           InkWell(
             onTap: () {
               setState(() {
@@ -121,7 +121,6 @@ class _SignupRolePageState extends State<SignupRolePage> {
               hintText: "직접 입력해 주세요.",
             ),
           ) : SizedBox(),
-          Spacer(),
         ],
       ),
       bottomNavigationBar: Padding(
