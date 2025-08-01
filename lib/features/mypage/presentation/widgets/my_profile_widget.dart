@@ -22,11 +22,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
         children: [
           Row(
             children: [
-              CircleAvatar(
-                backgroundColor: AppColors.primaryColor,
-                radius: 28,
-                child: SvgPicture.asset("lib/core/icons/user.svg"),
-              ),
+              Image.asset("lib/core/images/dau_profile.png", scale: 6,),
               AppSizedBox.w8SizedBox,
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
