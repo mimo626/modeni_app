@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modeni_app/features/questions_list/data/model/question_model.dart';
 
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/padding.dart';
@@ -7,7 +8,8 @@ import '../../../../core/theme/text_styles.dart';
 import 'package:go_router/go_router.dart';
 
 class MainQuestionCard extends StatelessWidget {
-  const MainQuestionCard({super.key});
+  final QuestionModel questionModel;
+  const MainQuestionCard({super.key, required this.questionModel});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class MainQuestionCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "당신에게 있어서 가족이란\n어떤 존재라고 생각하나요?",
+            questionModel.content,
             style: AppTextStyles.medium14,
             softWrap: true,
             maxLines: 3,
@@ -34,7 +36,7 @@ class MainQuestionCard extends StatelessWidget {
               backgroundColor: AppColors.primaryColor,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             ),
-            onPressed: () => context.push("/answer_write"),
+            onPressed: () => context.push("/answer_write", extra: {"questionModel": questionModel}),
             child: Text("답변 하기", style: AppTextStyles.medium14.copyWith(color: AppColors.whiteColor)),
           ),
         ],
