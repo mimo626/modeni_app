@@ -11,6 +11,7 @@ import '../../../../core/widget/basic_btn.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/widget/primary_app_bar.dart';
+import '../../../../main.dart';
 
 class SignupRolePage extends StatefulWidget {
   const SignupRolePage({super.key});
@@ -24,6 +25,8 @@ class _SignupRolePageState extends State<SignupRolePage> {
   bool isButtonEnabled = false;
   int? selectedIndex; // 선택된 index 저장
   bool isNoContent = false;
+  late bool hasText;
+  late bool hasSelection;
 
   @override
   void initState() {
@@ -32,8 +35,8 @@ class _SignupRolePageState extends State<SignupRolePage> {
   }
 
   void _updateButtonState() {
-    final hasText = roleController.text.trim().isNotEmpty;
-    final hasSelection = selectedIndex != null;
+    hasText = roleController.text.trim().isNotEmpty;
+    hasSelection = selectedIndex != null;
 
     final shouldEnable = hasText || hasSelection;
 
@@ -134,6 +137,14 @@ class _SignupRolePageState extends State<SignupRolePage> {
           onPressed: () {
             if (isButtonEnabled) {
               setState(() {
+                if(hasText && hasSelection || hasText){
+                  // 유저 정보 저장
+                  user_controller.role.value = roleController.text;
+                }
+                else if(hasSelection){
+                  // 유저 정보 저장
+                  user_controller.role.value = Globals.roleList[selectedIndex!];
+                }
                 context.push("/signup_region");
               });
             }

@@ -10,6 +10,8 @@ import '../../../../core/widget/basic_btn.dart';
 import '../../../../core/widget/primary_app_bar.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../main.dart';
+
 class SignupRegionPage extends StatefulWidget {
   const SignupRegionPage({super.key});
 
@@ -57,6 +59,9 @@ class _SignupRegionPageState extends State<SignupRegionPage> {
           textColor: AppColors.whiteColor,
           backgroundColor: AppColors.primaryColor,
           onPressed: () {
+            // 유저 정보 저장
+            user_controller.region.value = selectedRegion!;
+
             context.push("/signup_connection");
           },
         ),

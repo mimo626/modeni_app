@@ -9,6 +9,8 @@ import '../../../../core/theme/sizedbox.dart';
 import '../../../../core/widget/basic_btn.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../main.dart';
+
 class SignupIdpasswordPage extends StatefulWidget {
   const SignupIdpasswordPage({super.key});
 
@@ -116,7 +118,13 @@ class _SignupIdpasswordPageState extends State<SignupIdpasswordPage> {
               ? AppColors.primaryColor
               : AppColors.lightGreyColor,
           onPressed: isButtonEnabled
-              ? () => context.push("/signup_name")
+              ? () {
+            // 유저 정보 저장
+            user_controller.user_id.value = idController.text;
+            user_controller.password.value = passwordController.text;
+
+            context.push("/signup_name");
+          }
               : () => null,
         ),
       ),
