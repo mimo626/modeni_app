@@ -10,13 +10,16 @@ import 'package:modeni_app/features/user/presentation/pages/signup_name_page.dar
 import 'package:modeni_app/features/user/presentation/pages/signup_region_page.dart';
 import 'package:modeni_app/features/user/presentation/pages/signup_role_page.dart';
 
+import 'features/user/presentation/controller/user_controller.dart';
 import 'features/user/presentation/pages/start_page.dart';
 import 'main_page.dart';
+import 'package:get/get.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
+final user_controller = Get.put(UserController());
 
 final GoRouter _router = GoRouter(
   initialLocation: "/start",
