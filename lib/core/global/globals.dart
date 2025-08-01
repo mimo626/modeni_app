@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:modeni_app/features/questions_list/data/model/question_model.dart';
 
 import '../../features/diary/presentation/pages/diary_page.dart';
+import '../../features/questions_list/presentation/widgets/familiy_answer_list.dart';
 import '../theme/colors.dart';
 import 'nav_item.dart';
 
@@ -113,26 +114,22 @@ class Globals {
     QuestionModel(
       id: 1,
       content: "오늘은 가족과 함께 산책을 했어요. 행복했어요.",
-      familyId: 1,
-      createdAt: DateTime.now().subtract(Duration(days: 1)),
+      familyCode: "494949",
     ),
     QuestionModel(
       id: 2,
       content: "비가 와서 우울했지만, 엄마가 만든 김치찌개가 맛있었어요.",
-      familyId: 1,
-      createdAt: DateTime.now().subtract(Duration(days: 2)),
+      familyCode: "494949",
     ),
     QuestionModel(
       id: 3,
       content: "동생이랑 싸웠지만 금방 화해했어요.",
-      familyId: 1,
-      createdAt: DateTime.now().subtract(Duration(days: 3)),
+      familyCode: "494949",
     ),
     QuestionModel(
       id: 4,
       content: "오늘은 새로운 책을 읽었어요. 생각이 많아졌어요.",
-      familyId: 1,
-      createdAt: DateTime.now().subtract(Duration(days: 4)),
+      familyCode: "494949",
     ),
   ];
 
@@ -164,6 +161,27 @@ class Globals {
       emotions: ["짜증", "피곤"],
       activities: ["게임하기", "운동하기"],
       content: "게임을 많이 져서 짜증나고 피곤하다",
+    ),
+  ];
+
+  static List<Member> members = [
+    Member(
+      role: "엄마",
+      answer: "없어서는 안될 존재없어서는 안될 존재에요!",
+      heartCount: 3,
+      likedUserIds: {'user456', 'user789'},
+    ),
+    Member(
+      role: "아빠",
+      answer: "안정적인 울타리이자 나의 사랑이죠.",
+      heartCount: 1,
+      likedUserIds: {'user123'},
+    ),
+    Member(
+      role: "아들",
+      answer: "행복하고 편안한 존재에요.",
+      heartCount: 3,
+      likedUserIds: {'user456', 'user789'},
     ),
   ];
 
