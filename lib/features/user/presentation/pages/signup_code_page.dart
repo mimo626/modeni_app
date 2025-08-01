@@ -88,8 +88,7 @@ class _SignupCodePageState extends State<SignupCodePage> {
             if (isButtonEnabled) {
               setState(() {
                 //TODO 코드에 대한 유효성 검사 필요
-                user_controller.family_code.value = BigInt.parse(codeController.text);
-
+                user_controller.family_code.value = codeController.text;
                 context.push("/signup_finish");
               });
             }

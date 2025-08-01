@@ -19,7 +19,7 @@ class SignupConnectionPage extends StatefulWidget {
 }
 
 class _SignupConnectionPageState extends State<SignupConnectionPage> {
-  BigInt familyCode = Globals.generateRandom8DigitBigInt();
+  String familyCode = Globals.generateRandom8DigitBigInt();
   bool isGetCode = false;
 
   @override
