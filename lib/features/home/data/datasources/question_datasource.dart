@@ -32,17 +32,14 @@ class QuestionDatasource {
   /// 오늘의 질문
   Future<QuestionModel> getTodayQuestion(String familyCode) async {
     try {
-      final response = await dio.get('', queryParameters:
-        {
-          "familyCode": familyCode
-        }
-      );
+      final response = await dio.get('/questions/today/' + familyCode);
 
       if (response.statusCode == 200) {
         dynamic data = response.data;
 
+        final question = await QuestionModel.fromJson(data);
         logger.i("오늘의 질문 가져오기 성공");
-        return QuestionModel.fromJson(data);
+        return question;
       } else {
         throw Exception('오늘의 질문 가져오기 실패');
       }
@@ -55,19 +52,17 @@ class QuestionDatasource {
   /// 가족 질문리스트
   Future<List<QuestionModel>> getFamilyQuestions(String familyCode) async {
     try {
-      final response = await dio.get('', queryParameters:
-      {
-        "familyCode": familyCode
-      }
-      );
+      final response = await dio.get('/user-daily-questions/history/family/' + familyCode);
 
       if (response.statusCode == 200) {
         final List<dynamic> data = response.data;
 
-        logger.i("오늘의 질문 가져오기 성공");
-        return data.map((item) => QuestionModel.fromJson(item)).toList();
+        final list = await data.map((item) => QuestionModel.fromJson(item["question"])).toList();
+
+        logger.i("질문들 가져오기 성공");
+        return list;
       } else {
-        throw Exception('오늘의 질문 가져오기 실패');
+        throw Exception('질문들 가져오기 실패');
       }
     } catch (e) {
       logger.e("질문 리스트 가져오기 실패: $e");
