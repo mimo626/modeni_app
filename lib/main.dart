@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:modeni_app/features/questions_list/presentation/pages/question_detail_page.dart';
 import 'package:modeni_app/features/user/presentation/pages/login_page.dart';
 import 'package:modeni_app/features/user/presentation/pages/signup_age_page.dart';
 import 'package:modeni_app/features/user/presentation/pages/signup_code_page.dart';
@@ -22,7 +23,7 @@ void main() {
 final user_controller = Get.put(UserController());
 
 final GoRouter _router = GoRouter(
-  initialLocation: "/start",
+  initialLocation: "/",
   routes: <RouteBase>[
     GoRoute(
       path: '/',
@@ -88,6 +89,13 @@ final GoRouter _router = GoRouter(
       path: '/signup_finish',
       builder: (context, state) {
         return SignupFinishPage();
+      },
+    ),
+    GoRoute(
+      path: '/question_detail',
+      builder: (context, state) {
+        final extra = state.extra as Map<String, dynamic>;
+        return QuestionDetailPage(index: extra["index"], question: extra["question"],);
       },
     ),
   ]
