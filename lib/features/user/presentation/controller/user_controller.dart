@@ -5,7 +5,7 @@ class UserController extends GetxController {
   final user_id = ''.obs;
   final password = ''.obs;
   final name = ''.obs;
-  final age = 0.obs;
+  final age = ''.obs;
   final role = ''.obs;
   final region = ''.obs;
   final family_code = BigInt.zero.obs;

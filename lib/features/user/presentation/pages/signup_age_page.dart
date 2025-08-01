@@ -89,7 +89,7 @@ class _SignupAgePageState extends State<SignupAgePage> {
             if (isButtonEnabled) {
               setState(() {
                 // 유저 정보 저장
-                user_controller.age.value = int.parse(ageController.text);
+                user_controller.age.value = ageController.text;
                 context.push("/signup_role");
               });
             }
