@@ -14,8 +14,8 @@ class FamilyMember {
   FamilyMember({required this.name, required this.answer, required this.imgUrl, required this.heartCount, });
 }
 
-class FamilyList extends StatelessWidget {
-  const FamilyList({super.key});
+class FamilyAnswerList extends StatelessWidget {
+  const FamilyAnswerList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +25,15 @@ class FamilyList extends StatelessWidget {
     ];
 
     return Column(
-      children: members.map((member) => FamilyCard(member: member)).toList(),
+      children: members.map((member) => FamilyAnswerCard(member: member)).toList(),
     );
   }
 }
 
-class FamilyCard extends StatelessWidget {
+class FamilyAnswerCard extends StatelessWidget {
   final FamilyMember member;
 
-  const FamilyCard({super.key, required this.member});
+  const FamilyAnswerCard({super.key, required this.member});
 
   @override
   Widget build(BuildContext context) {
