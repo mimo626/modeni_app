@@ -7,7 +7,7 @@ import '../../../../core/theme/text_styles.dart';
 import '../../../../core/widget/primary_app_bar.dart';
 import 'package:go_router/go_router.dart';
 
-import '../widgets/familiy_list.dart';
+import '../widgets/familiy_answer_list.dart';
 import '../widgets/question_card.dart';
 
 
@@ -47,7 +47,7 @@ class _QuestionDetailPageState extends State<QuestionDetailPage> {
                 ),
               ),
             ),
-            FamilyList(),
+            FamilyAnswerList(),
           ],
         ),
       ),
