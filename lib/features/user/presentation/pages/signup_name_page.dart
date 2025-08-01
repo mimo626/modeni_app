@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modeni_app/core/theme/text_styles.dart';
+import 'package:modeni_app/core/widget/primary_app_bar.dart';
 import 'package:modeni_app/core/widget/text_field_title.dart';
 
 import '../../../../core/theme/colors.dart';
@@ -41,15 +42,18 @@ class _SignupNamePageState extends State<SignupNamePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
+      appBar: PrimaryAppbar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          AppSizedBox.h54SizedBox,
-          LinearProgressIndicator(
-            value: 0.2,
-            backgroundColor: AppColors.lightGreyColor,
-            color: AppColors.primaryColor,
+          Padding(
+            padding: AppPadding.h20Padding,
+            child: LinearProgressIndicator(
+              value: 0.2,
+              backgroundColor: AppColors.lightGreyColor,
+              color: AppColors.primaryColor,
+            ),
           ),
           Spacer(),
           Text("이름을 입력해 주세요.",
@@ -61,7 +65,7 @@ class _SignupNamePageState extends State<SignupNamePage> {
           ),
           AppSizedBox.h54SizedBox,
           Padding(
-            padding: AppPadding.h20Padding,
+            padding: AppPadding.h60v16Padding,
             child: TextFieldTitle(
               controller: nameController,
               hintText: "이름을 입력해 주세요.",
