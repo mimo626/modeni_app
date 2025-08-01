@@ -35,7 +35,7 @@ class _BasicBtnState extends State<BasicBtn> {
           backgroundColor: widget.backgroundColor,
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(4.0),
+            borderRadius: BorderRadius.circular(18.0),
           ),
         ),
         child: Text(
