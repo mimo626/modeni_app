@@ -7,20 +7,24 @@ import '../../../../core/theme/sizedbox.dart';
 import '../../../../core/widget/primary_app_bar.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../data/model/answer_model.dart';
+import '../../data/model/question_model.dart';
 import '../widgets/familiy_answer_list.dart';
 import '../widgets/question_card.dart';
 
 
 class QuestionDetailPage extends StatefulWidget {
   final int index;
-  final String question;
-  const QuestionDetailPage({super.key, required this.index, required this.question});
+  final QuestionModel questionModel;
+  const QuestionDetailPage({super.key, required this.index, required this.questionModel});
 
   @override
   State<QuestionDetailPage> createState() => _QuestionDetailPageState();
 }
 
 class _QuestionDetailPageState extends State<QuestionDetailPage> {
+  AnswerModel? answerModel;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,18 +36,29 @@ class _QuestionDetailPageState extends State<QuestionDetailPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppSizedBox.h24SizedBox,
-            QuestionCard(index: widget.index, question: widget.question,),
-            Padding(
-              padding: AppPadding.h20v26Padding,
-              child: SizedBox(
-                width: double.infinity,
-                child: BasicBtn(btnText: "작성하기", textColor: AppColors.whiteColor,
-                    backgroundColor: AppColors.tertiaryColor,
-                    onPressed: () => context.push("/answer_write"),
+            QuestionCard(index: widget.index, question: widget.questionModel.content,),
+          answerModel != null ? FamilyAnswerList(Member(role: "딸", answer: answerModel!.content, heartCount: 0, likedUserIds: {}))
+              :Column(
+              children: [
+                Padding(
+                  padding: AppPadding.h20v26Padding,
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: BasicBtn(btnText: "작성하기", textColor: AppColors.whiteColor,
+                        backgroundColor: AppColors.tertiaryColor,
+                        onPressed: () async {
+                          answerModel = await context.push<AnswerModel>(
+                            '/answer_write',
+                            extra: {"questionModel": widget.questionModel},
+                          );
+                          setState(() {});
+                        }
+                    ),
+                  ),
                 ),
-              ),
+                FamilyAnswerList(null),
+              ],
             ),
-            FamilyAnswerList(),
           ],
         ),
       ),
