@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modeni_app/core/global/globals.dart';
 
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/padding.dart';
@@ -8,6 +9,8 @@ import 'package:modeni_app/core/widget/primary_app_bar.dart';
 
 import '../../../../core/theme/sizedbox.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../../main.dart';
 class SignupConnectionPage extends StatefulWidget {
   const SignupConnectionPage({super.key});
 
@@ -16,6 +19,7 @@ class SignupConnectionPage extends StatefulWidget {
 }
 
 class _SignupConnectionPageState extends State<SignupConnectionPage> {
+  BigInt familyCode = Globals.generateRandom8DigitBigInt();
   bool isGetCode = false;
 
   @override
@@ -48,7 +52,7 @@ class _SignupConnectionPageState extends State<SignupConnectionPage> {
               AppSizedBox.h24SizedBox,
               Text("가족 연결 코드", style: AppTextStyles.medium16.copyWith(color: AppColors.darkGreyColor, ),),
               AppSizedBox.h8SizedBox,
-              Text("dkfjdkf", style: AppTextStyles.medium14.copyWith(color: AppColors.darkGreyColor, ),),
+              Text("${familyCode}", style: AppTextStyles.medium14.copyWith(color: AppColors.darkGreyColor, ),),
             ],
           ) : SizedBox(),
           Spacer(),
@@ -79,6 +83,8 @@ class _SignupConnectionPageState extends State<SignupConnectionPage> {
                   backgroundColor: AppColors.primaryColor,
                   onPressed: () {
                     setState(() {
+                      user_controller.family_code.value = familyCode;
+
                       isGetCode = true;
                     });
                   },
