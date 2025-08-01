@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:modeni_app/features/diary/presentation/pages/diary_page.dart';
+import 'package:modeni_app/features/diary/presentation/pages/diary_write_page.dart';
+import 'package:modeni_app/features/mission/presentation/pages/mission_page.dart';
+import 'package:modeni_app/features/questions_list/presentation/pages/answer_write_page.dart';
 import 'package:modeni_app/features/questions_list/presentation/pages/question_detail_page.dart';
 import 'package:modeni_app/features/user/presentation/pages/login_page.dart';
 import 'package:modeni_app/features/user/presentation/pages/signup_age_page.dart';
@@ -96,6 +100,30 @@ final GoRouter _router = GoRouter(
       builder: (context, state) {
         final extra = state.extra as Map<String, dynamic>;
         return QuestionDetailPage(index: extra["index"], question: extra["question"],);
+      },
+    ),
+    GoRoute(
+      path: '/answer_write',
+      builder: (context, state) {
+        return AnswerWritePage();
+      },
+    ),
+    GoRoute(
+      path: '/diary',
+      builder: (context, state) {
+        return DiaryPage();
+      },
+    ),
+    GoRoute(
+      path: '/diary_write',
+      builder: (context, state) {
+        return DiaryWritePage();
+      },
+    ),
+    GoRoute(
+      path: '/mission',
+      builder: (context, state) {
+        return MissionPage();
       },
     ),
   ]
