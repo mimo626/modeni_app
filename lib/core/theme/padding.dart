@@ -85,6 +85,7 @@ class AppPadding {
   static const EdgeInsets h20v64Padding = EdgeInsets.symmetric(horizontal: 20, vertical: 64);
   static const EdgeInsets h24v8Padding = EdgeInsets.symmetric(horizontal: 24, vertical: 8);
   static const EdgeInsets h32v12Padding = EdgeInsets.symmetric(horizontal: 32, vertical: 12);
+  static const EdgeInsets h60v16Padding = EdgeInsets.symmetric(horizontal: 60, vertical: 16);
 
   //fromLTRB
   static const EdgeInsets l0t4r0b20Padding = EdgeInsets.fromLTRB(0, 4, 0, 20);
