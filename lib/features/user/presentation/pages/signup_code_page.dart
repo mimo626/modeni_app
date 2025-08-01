@@ -9,6 +9,8 @@ import '../../../../core/theme/sizedbox.dart';
 import '../../../../core/widget/basic_btn.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../main.dart';
+
 class SignupCodePage extends StatefulWidget {
   const SignupCodePage({super.key});
 
@@ -85,6 +87,9 @@ class _SignupCodePageState extends State<SignupCodePage> {
           onPressed: () {
             if (isButtonEnabled) {
               setState(() {
+                //TODO 코드에 대한 유효성 검사 필요
+                user_controller.family_code.value = BigInt.parse(codeController.text);
+
                 context.push("/signup_finish");
               });
             }
