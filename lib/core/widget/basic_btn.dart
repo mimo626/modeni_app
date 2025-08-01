@@ -9,6 +9,7 @@ class BasicBtn extends StatefulWidget {
   final Color textColor;
   final Color backgroundColor;
   final VoidCallback onPressed;
+  final EdgeInsets padding;
 
   const BasicBtn({
     super.key,
@@ -16,6 +17,7 @@ class BasicBtn extends StatefulWidget {
     required this.textColor,
     required this.backgroundColor,
     required this.onPressed,
+    this.padding = AppPadding.h20Padding,
   });
 
   @override
@@ -26,7 +28,7 @@ class _BasicBtnState extends State<BasicBtn> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:AppPadding.h20Padding,
+      padding:widget.padding,
       child: ElevatedButton(
         onPressed: widget.onPressed,
         style: ElevatedButton.styleFrom(
