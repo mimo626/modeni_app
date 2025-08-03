@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 import 'package:modeni_app/features/questions_list/data/model/answer_model.dart';
 import 'package:modeni_app/features/questions_list/data/model/question_model.dart';
-import 'package:modeni_app/features/user/data/model/user_model.dart';
 
 
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:modeni_app/core/global/globals.dart';
 import 'package:modeni_app/core/theme/colors.dart';
 import 'package:modeni_app/core/theme/padding.dart';
 import 'package:modeni_app/core/widget/primary_app_bar.dart';
