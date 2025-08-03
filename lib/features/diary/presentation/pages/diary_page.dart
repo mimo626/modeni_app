@@ -45,7 +45,7 @@ class _DiaryPageState extends State<DiaryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: PrimaryAppbar(title: "일기", showNotificationIcon: true,),
+      appBar: PrimaryAppbar(title: "일기장", showNotificationIcon: true,),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
