@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modeni_app/core/theme/colors.dart';
 import 'package:modeni_app/core/theme/text_styles.dart';
+import 'package:modeni_app/core/widget/primary_app_bar.dart';
 
 class MissionPage extends StatelessWidget {
   const MissionPage({super.key});
@@ -9,18 +10,7 @@ class MissionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text("미션", style: TextStyle(color: Colors.black)),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications_none, color: Colors.grey),
-            onPressed: () {},
-          )
-        ],
-      ),
+      appBar: PrimaryAppbar(title: "미션", showNotificationIcon: true,),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
