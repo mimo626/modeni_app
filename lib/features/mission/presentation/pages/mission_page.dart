@@ -100,16 +100,8 @@ class MissionPage extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  const SizedBox(
-                    width: 60,
-                    height: 80,
-                    child: Stack(
-                      children: [
-                        Positioned(left: 12, child: Card(child: SizedBox(width: 40, height: 60))),
-                        Positioned(left: 0, child: Card(child: SizedBox(width: 40, height: 60))),
-                      ],
-                    ),
-                  ),
+                  Image.asset("lib/core/images/mission_card_two.png",
+                  scale: 3.5,),
                   AppSizedBox.w16SizedBox,
                   Expanded(
                     child: Column(
@@ -129,7 +121,7 @@ class MissionPage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20),
                               ),
                             ),
-                            child: Text("미션 카드 확인 하러가기", style: AppTextStyles.semiBold14.copyWith(color: AppColors.whiteColor),),
+                            child: Text("미션 카드 확인하기", style: AppTextStyles.semiBold14.copyWith(color: AppColors.whiteColor),),
                           ),
                         ),
                       ],
