@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modeni_app/core/theme/colors.dart';
+import 'package:modeni_app/core/theme/padding.dart';
+import 'package:modeni_app/core/theme/sizedbox.dart';
 import 'package:modeni_app/core/theme/text_styles.dart';
 import 'package:modeni_app/core/widget/primary_app_bar.dart';
 
@@ -12,12 +14,12 @@ class MissionPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: PrimaryAppbar(title: "미션", showNotificationIcon: true,),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: AppPadding.h20Padding,
         child: Column(
           children: [
             // 성향 카드
             Container(
-              padding: const EdgeInsets.all(16),
+              padding: AppPadding.all20Padding,
               decoration: BoxDecoration(
                 color: Colors.green.shade50,
                 borderRadius: BorderRadius.circular(20),
@@ -31,7 +33,7 @@ class MissionPage extends StatelessWidget {
                         backgroundColor: Colors.white,
                         child: Image.asset("lib/core/images/blue_rock.png", scale: 12,), // 또는 Image.asset('assets/blue.png')
                       ),
-                      const SizedBox(width: 12),
+                      AppSizedBox.w12SizedBox,
                       Expanded(
                         child: Text.rich(
                           TextSpan(
@@ -39,17 +41,17 @@ class MissionPage extends StatelessWidget {
                             children: [
                               TextSpan(
                                 text: '파랑이',
-                                style: TextStyle(color: Colors.lightBlue),
+                                style: AppTextStyles.semiBold16.copyWith(color: AppColors.primaryColor)
                               ),
-                              const TextSpan(text: ' 성향입니다.'),
+                              TextSpan(text: ' 성향입니다.'),
                             ],
                           ),
-                          style: const TextStyle(fontSize: 16),
+                          style: AppTextStyles.medium16
                         ),
                       )
                     ],
                   ),
-                  const SizedBox(height: 12),
+                  AppSizedBox.h12SizedBox,
                   ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
@@ -63,11 +65,10 @@ class MissionPage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 20),
-
+            AppSizedBox.h20SizedBox,
             // 궁합
             Container(
-              padding: const EdgeInsets.all(16),
+              padding: AppPadding.all20Padding,
               decoration: BoxDecoration(
                 color: Colors.green.shade50,
                 borderRadius: BorderRadius.circular(20),
@@ -75,24 +76,24 @@ class MissionPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text("우리 가족과 궁합 알아보기",
-                      style: TextStyle(fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 12),
+                  Text("우리 가족과 궁합 알아보기",
+                      style: AppTextStyles.medium16),
+                  AppSizedBox.h12SizedBox,
                   Row(
-                    children: const [
+                    children: [
                       Expanded(child: _FamilyCompatibilityCard(name: "아빠", type: "남색이")),
-                      SizedBox(width: 12),
+                      AppSizedBox.w12SizedBox,
                       Expanded(child: _FamilyCompatibilityCard(name: "엄마", type: "노랑이")),
                     ],
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            AppSizedBox.h20SizedBox,
 
             // 미션 카드
             Container(
-              padding: const EdgeInsets.all(16),
+              padding: AppPadding.all20Padding,
               decoration: BoxDecoration(
                 color: Colors.green.shade50,
                 borderRadius: BorderRadius.circular(20),
@@ -109,15 +110,15 @@ class MissionPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 16),
+                  AppSizedBox.w16SizedBox,
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children:  [
                         Text("성공한 미션카드", style: AppTextStyles.medium16),
-                        SizedBox(height: 4),
+                        AppSizedBox.h4SizedBox,
                         Text("01개", style: AppTextStyles.semiBold16),
-                        SizedBox(height: 4),
+                        AppSizedBox.h4SizedBox,
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
@@ -137,7 +138,7 @@ class MissionPage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            AppSizedBox.h20SizedBox,
 
             // 복지 정보
             InkWell(
@@ -174,27 +175,27 @@ class _FamilyCompatibilityCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 140,
-      padding: const EdgeInsets.all(12),
+      padding: AppPadding.all16Padding,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.green.shade100),
         borderRadius: BorderRadius.circular(16),
-        color: Colors.white,
+        color: AppColors.whiteColor
       ),
       child: Column(
         children: [
           Image.asset("lib/core/images/navy_rock.png", scale: 12,), // 또는 Image.asset('assets/blue.png')
-          Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
+          Text(name, style: AppTextStyles.semiBold14),
           const SizedBox(height: 4),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            padding: AppPadding.h8v4Padding,
             decoration: BoxDecoration(
               color: Colors.grey.shade100,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Text(type),
           ),
-          const SizedBox(height: 4),
-          const Text("80%", style: TextStyle(color: Colors.grey)),
+          AppSizedBox.h4SizedBox,
+          Text("80%", style: AppTextStyles.medium14.copyWith(color: AppColors.greyColor)),
         ],
       ),
     );
