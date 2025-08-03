@@ -26,8 +26,6 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("minju@naver.com"),
-                  AppSizedBox.h8SizedBox,
                   Text("강민주"),
                 ],
               )
