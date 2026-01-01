@@ -19,6 +19,7 @@ import 'features/user/presentation/controller/user_controller.dart';
 import 'features/user/presentation/pages/start_page.dart';
 import 'main_page.dart';
 import 'package:get/get.dart';
+import 'core/theme/theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -138,6 +139,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: _router,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system, // 시스템 설정에 따라 자동으로 라이트/다크 모드 전환
     );
   }
 }
