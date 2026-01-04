@@ -3,6 +3,7 @@ import 'package:modeni_app/core/global/globals.dart';
 import 'package:modeni_app/core/theme/colors.dart';
 import 'package:modeni_app/core/theme/sizedbox.dart';
 import 'package:modeni_app/core/theme/text_styles.dart';
+import 'package:modeni_app/core/theme/theme.dart';
 import 'package:modeni_app/core/widget/text_field_title.dart';
 
 import '../../../../core/theme/padding.dart';
@@ -93,13 +94,13 @@ class _DiaryWritePageState extends State<DiaryWritePage> {
                 children: Globals.emotions.map((e) {
                   final isSelected = selectedEmotions.contains(e);
                   return ChoiceChip(
-                    label: Text(e),
+                    label: Text(e, style: TextStyle(color: isSelected ? context.colorScheme.onTertiary : context.colorScheme.onSecondary)),
                     showCheckmark: false,
-                    backgroundColor: AppColors.lightGreyColor,
+                    backgroundColor: context.colorScheme.secondary,
                     selected: isSelected,
-                    selectedColor: AppColors.secondaryColor,
+                    selectedColor: context.colorScheme.tertiary,
                     onSelected: (_) => _toggleEmotion(e),
-                    shape: StadiumBorder(side: BorderSide(color: isSelected ?AppColors.secondaryColor : AppColors.lightGreyColor)),
+                    shape: StadiumBorder(side: BorderSide(color: isSelected ? context.colorScheme.tertiary : context.colorScheme.secondary)),
                   );
                 }).toList(),
               ),
@@ -114,13 +115,13 @@ class _DiaryWritePageState extends State<DiaryWritePage> {
                 children: Globals.activities.map((t) {
                   final isSelected = selectedTodos.contains(t);
                   return ChoiceChip(
-                    label: Text(t),
+                    label: Text(t, style: TextStyle(color: isSelected ? context.colorScheme.onTertiary : context.colorScheme.onSecondary)),
                     showCheckmark: false,
-                    backgroundColor: AppColors.lightGreyColor,
+                    backgroundColor: context.colorScheme.secondary,
                     selected: isSelected,
-                    selectedColor: AppColors.orangeColor,
+                    selectedColor: context.colorScheme.tertiary,
                     onSelected: (_) => _toggleTodo(t),
-                    shape: StadiumBorder(side: BorderSide(color: isSelected ? AppColors.orangeColor : AppColors.lightGreyColor)),
+                    shape: StadiumBorder(side: BorderSide(color: isSelected ? context.colorScheme.tertiary : context.colorScheme.secondary)),
                   );
                 }).toList(),
               ),
@@ -139,11 +140,11 @@ class _DiaryWritePageState extends State<DiaryWritePage> {
       bottomNavigationBar: Padding(
         padding: AppPadding.v16Padding,
         child: BasicBtn(
-          btnText: "입력 완료",
-          textColor: AppColors.whiteColor,
+          btnText: "입력완료",
+          textColor: context.colorScheme.onPrimary,
           backgroundColor: isButtonEnabled
-              ? AppColors.primaryColor
-              : AppColors.lightGreyColor,
+              ? context.colorScheme.primary
+              : context.colorScheme.secondary,
           onPressed: () {
             if (isButtonEnabled) {
               setState(() {
