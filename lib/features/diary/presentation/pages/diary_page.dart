@@ -4,9 +4,9 @@ import 'package:modeni_app/core/global/globals.dart';
 import 'package:modeni_app/core/theme/padding.dart';
 import 'package:modeni_app/core/theme/sizedbox.dart';
 import 'package:modeni_app/core/theme/text_styles.dart';
+import 'package:modeni_app/core/theme/theme.dart';
 import 'package:modeni_app/core/widget/list_view_widget.dart';
 
-import '../../../../core/theme/colors.dart';
 import '../../../../core/widget/basic_btn.dart';
 import '../../../../core/widget/primary_app_bar.dart';
 
@@ -44,7 +44,7 @@ class _DiaryPageState extends State<DiaryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: context.colorScheme.background,
       appBar: PrimaryAppbar(title: "일기장", showNotificationIcon: true,),
       body: SingleChildScrollView(
         child: Column(
@@ -55,8 +55,8 @@ class _DiaryPageState extends State<DiaryPage> {
               padding: AppPadding.h20v26Padding,
               child: SizedBox(
                 width: double.infinity,
-                child: BasicBtn(btnText: "작성하기", textColor: AppColors.whiteColor,
-                  backgroundColor: AppColors.tertiaryColor,
+                child: BasicBtn(btnText: "작성하기", textColor: context.colorScheme.onTertiary,
+                  backgroundColor: context.colorScheme.tertiary,
                     onPressed: () async {
                       await context.push("/diary_write");
                       setState(() {}); // 돌아왔을 때 화면 갱신
@@ -68,7 +68,7 @@ class _DiaryPageState extends State<DiaryPage> {
             ListViewWidget(list: Globals.familyAnswers, listLength: Globals.familyAnswers.length,
                 listWidgetBuilder: (item) => DiaryItemRow(familyAnswerModel: item),),
             AppSizedBox.h16SizedBox,
-            Divider(color: AppColors.lightGreyColor,),
+            Divider(color: context.colorScheme.outlineVariant,),
           ],
         ),
       ),
@@ -88,28 +88,28 @@ class DiaryItemRow extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppSizedBox.h16SizedBox,
-        Divider(color: AppColors.lightGreyColor,),
+        Divider(color: context.colorScheme.outlineVariant,),
         Padding(
           padding: AppPadding.h20Padding,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppSizedBox.h24SizedBox,
-              Text(familyAnswerModel.name, style: const TextStyle(fontWeight: FontWeight.bold)),
+              Text(familyAnswerModel.name, style: TextStyle(fontWeight: FontWeight.bold, color: context.colorScheme.onSecondary)),
               AppSizedBox.h8SizedBox,
               Wrap(
                 spacing: 8,
-                children: familyAnswerModel.emotions.map((emotion) => _KeywordChip(tag: emotion, bgColor: AppColors.secondaryColor,)).toList(),
+                children: familyAnswerModel.emotions.map((emotion) => _KeywordChip(tag: emotion, bgColor: context.colorScheme.secondary,)).toList(),
               ),
               AppSizedBox.h12SizedBox,
               Wrap(
                 spacing: 8,
-                children: familyAnswerModel.activities.map((activity) => _KeywordChip(tag: activity, bgColor: AppColors.orangeColor,)).toList(),
+                children: familyAnswerModel.activities.map((activity) => _KeywordChip(tag: activity, bgColor: context.colorScheme.secondary,)).toList(),
               ),
               AppSizedBox.h12SizedBox,
 
               familyAnswerModel.content.trim().isEmpty ? SizedBox() :
-              Text(familyAnswerModel.content, style: AppTextStyles.medium14.copyWith(color: AppColors.darkGreyColor)),
+              Text(familyAnswerModel.content, style: AppTextStyles.medium14.copyWith(color: context.colorScheme.onSecondary)),
               AppSizedBox.h16SizedBox,
             ],
           ),
