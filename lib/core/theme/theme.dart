@@ -17,8 +17,8 @@ class AppTheme {
         onSecondary: AppColors.blackColor, // 검정색
         
         // Tertiary 색상
-        tertiary: AppColors.tertiaryColor, // #F2F2F2
-        onTertiary: AppColors.blackColor, // 검정색
+        tertiary: AppColors.darkGreyColor, // #F2F2F2
+        onTertiary: AppColors.whiteColor, // 검정색
         
         // Error 색상
         error: AppColors.errorColor, // #FC0032
@@ -109,4 +109,8 @@ class AppTheme {
   }
 }
 
+// BuildContext extension으로 colorScheme을 쉽게 접근할 수 있도록 함
+extension BuildContextExtension on BuildContext {
+  ColorScheme get colorScheme => Theme.of(this).colorScheme;
+}
 
